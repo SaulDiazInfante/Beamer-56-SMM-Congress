@@ -1,0 +1,39 @@
+\begin{frame}{Parameters of the simulation}
+\begin{itemize}
+\item Using the Milstein scheme, we divide the interval $[0,T]$ into $n$ sub-intervals of length 
+$\Delta=\frac{T}{n}$ and we obtain observations of each process at the times 
+$0=t_0<t_1<\ldots<t_n=T$ where $t_i-t_{i-1}=\Delta, i=1,\ldots,n$.
+\item We simulate a 1000 datasets in the time interval $[0,1]$. 
+    We use 
+    $   \beta_a=0.251521
+    $,
+    $
+        \beta_s=0.456391
+    $,
+    $
+        p=0.1213
+    $,
+    $
+        \sigma=1/5000
+    $, values of Table \ref{table:parametermodel} and $\Delta=1/850$.
+      
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Estimator of simulation study}
+    \begin{table}[tbh]
+        \centering
+        \begin{tabular}{rlcc}\hline
+Parameter & Real Value & Estimator & SD \\ \hline 
+             $\beta_s$ & 0.456391 & 0.453155 & 2.900549E-005\\
+            $\beta_a$  & 0.251521 & 0.265229 & 6.081389E-002  \\
+    $p$ & 0.1213&0.120354 & 2.554605E-006\\          
+    $\sigma$ & 1/5000 & 1.361178E-004 & 5.325816E-009\\
+            \hline
+        \end{tabular}
+        \caption{Average and  Standard Deviation (SD) of estimator of $\sigma$ and MLEs for $\beta_a,\beta_s$, and $p$.}
+        \label{table:MLE}
+    \end{table}
+
+    \end{frame}

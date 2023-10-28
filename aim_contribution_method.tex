@@ -1,0 +1,58 @@
+\begin{frame}{Aims, methodology, and contribution}
+    \begin{textblock*}{80mm}(5mm,10mm)
+        \only<1->{
+            \begin{description}
+                \item[Aim:]
+                    Improve the estimation of the infection rates
+                    $\beta_s$, $\beta_a$, and ratio of asymptomatic cases $p$.
+                \item[Hypothesis:]
+                    Noise could improve the
+                    uncertainty quantification.
+            \end{description}
+        }
+    \end{textblock*}
+    \begin{textblock*}{55mm}(5mm,30mm)
+        \only<2->{
+            \begin{graybox}{
+    	   Solution idea:
+            }
+                \begin{itemize}[label= \textbullet]
+                    \item Deterministic Inference
+                        \begin{itemize}[label= \ding{51}]
+                            \item ODE 
+                            \item MCMC
+                        \end{itemize}
+                    \item Stochastic Inference
+                        \begin{itemize}[label= \ding{113}]
+                            \item SDE extension
+                            \item Lamperti
+                            \item Grisanov
+                            \item Opt. ML 
+                        \end{itemize}
+                \end{itemize}   
+            \end{graybox}
+        }
+    \end{textblock*}
+    \begin{textblock*}{50mm}(70mm,35mm)
+        \only<3>{
+            \begin{greenbox}{Contribution}
+                \begin{itemize}[label = \ding{217}]
+    			\item 
+                        A stochastic SEIR.
+                    \item 
+    				Consistent estimators.
+    			\item 
+    				Simulation.
+        \item 
+         Real data.
+     		\end{itemize}
+            \end{greenbox}
+        }
+    \end{textblock*}
+\end{frame}	
+
+\begin{bibunit}[apalike]
+    \begin{frame}{Our Contribution \cite{Baltazar2022}}
+        \biblio{main}
+    \end{frame}
+\end{bibunit}

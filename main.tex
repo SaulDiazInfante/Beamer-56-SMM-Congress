@@ -1,0 +1,137 @@
+\documentclass[9pt]{beamer}
+\usepackage[sfdefault]{roboto}
+\usepackage{styles/fluxmacros}
+\usefolder{styles}
+\usetheme[style=asphalt]{flux}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
+\usepackage{siunitx}
+%\usepackage{times}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{thumbpdf}
+\usepackage{%
+    pgf,%
+    pgfarrows,%
+    pgfnodes,%
+    pgfautomata,%
+    pgfheaps,%
+    pgfshade%
+}
+\usepackage{url}
+\usepackage{empheq}
+\usepackage{fancybox}
+\usepackage{esint}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{tikz}%
+\usepackage{circuitikz}
+\usepackage{csvsimple}
+\usepackage{pgfplots}
+\usepackage{multimedia}
+\usepackage{proba}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{bibunits}
+\usepackage{tcolorbox}
+\usepackage{qrcode}
+%\usepackage[texcoord,%
+%            grid,%
+%            gridunit=mm,%
+%            gridcolor=red!60,%
+%           subgridcolor=black!60%
+%            ]{eso-pic}
+\usepackage{enumerate}
+\usepackage[makeroom]{cancel}
+\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+\setbeamercovered{transparent}
+% Informations
+
+\epstopdfsetup{outdir=./}
+\mode<presentation>
+{
+    \useinnertheme{progressbar}
+}
+%\setbeamertemplate{items}[ball]
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Informations
+\defaultbibliography{main}
+%
+\title{\Huge{Estimaci\'{o}n m\'{a}ximo veros\'{i}mil }\\
+    \Huge{
+        \textbf{
+        para un sistema SEIR estoc\'{a}stico
+        }
+    }
+}
+\subtitle{%
+        \textbf{
+            \textcolor{gray}{
+                 con una aplicaci\'{o}n COVID-19%
+            }
+       }
+    \\
+    \normalsize{October 25, 2023, 56 Congreso SMM }
+    } 
+    
+%
+\author{
+    \normalsize{%
+        CONAHCYT-UNISON-UNAM: FDV, FBL, SDIV
+    }
+}
+%
+\titlegraphic{assets/logoUNISON-UNAM-CONACHYT.png}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\input{setup}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\begin{document}
+    \titlepage  
+        \section{Motivation: MCMC Overfitting example}
+            \subsection{Deterministic Formulation}
+            \input{deterministic_formulation}
+        \subsection{Aims, methodology, and contribution}
+            \input{aim_contribution_method}
+                \subsection{Related Work}
+            \input{related_work}
+                \begin{frame}
+                   \frametitle{Table of contents}
+                   \tableofcontents
+                \end{frame}
+            \subsection{
+                Stochastic Formulation by Perturbation of parameters
+            }
+                \input{stochastic_model}
+            \section{Statistical Inference}
+                \input{statistical_inference}
+    %
+            \section{Simulation study}
+                \input{simulation}
+    %\section{Parameter estimation of SEIR-Covid-19 model based on a SDE}
+    \section{Application to real data}
+            \input{real_data}
+    %\section{Final comments}
+    %
+    %\begin{frame}[allowframebreaks]
+    %   \frametitle{Final Remarks}            
+    %    \bibliographystyle{acm}
+    %    \bibliography{main.bib}
+    %\end{frame}
+\end{document}

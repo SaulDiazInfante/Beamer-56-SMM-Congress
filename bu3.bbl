@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Ndanguza2016}
+Ndanguza D., S.~Mbalawata I., and P.~Nsabimana J.
+\newblock {Analysis of SDEs Applied to SEIR Epidemic Models by Extended Kalman
+  Filter Method}.
+\newblock {\em Applied Mathematics}, 07(17):2195--2211, 2016.
+
+\bibitem{Hotta2010}
+LUIZ~K. HOTTA.
+\newblock Bayesian melding estimation of a stochastic seir model.
+\newblock {\em Mathematical Population Studies}, 17(2):101--111, 2010.
+
+\bibitem{Otunuga2021}
+Olusegun~M. Otunuga.
+\newblock {Estimation of epidemiological parameters for COVID-19 cases using a
+  stochastic SEIRS epidemic model with vital dynamics}.
+\newblock {\em Results in Physics}, 28:104664, 2021.
+
+\bibitem{Rios2021}
+Andr{\'e}s R{\i}os-Guti{\'e}rrez, Viswanathan Arunachalam, and Anuj Mubayi.
+\newblock Stochastic anlysis and statistical inference for seir models of
+  infectious diseases.
+
+\end{thebibliography}

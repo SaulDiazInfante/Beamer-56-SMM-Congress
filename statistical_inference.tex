@@ -1,0 +1,187 @@
+\begin{frame}{Statistical Inference: Methodology}
+    \begin{itemize}[label=(\ding{43})]
+        \item 
+            Assume that the true value of the parameters
+            $\beta_{s,0}$, $\beta_{a,0}$, $p_0$, and $\sigma_0$ are unknown.
+        \item 
+            Use the quadratic variation of the SDE solution to estimate $\sigma$. 
+        \item 
+            Rewrite the SDEs by applying Lamperti's 
+            transformation to each component.
+        \item  
+            Apply the Girsanov formula 
+            for the new system, and we obtained the likelihood function and the MLEs for 
+            $\beta_{s,0},\beta_{a,0}, p_0$.
+    \end{itemize}
+\end{frame}
+
+ \begin{frame}{Estimator of the parameter of diffusion $\sigma$}
+    \begin{equation*}\label{est_sigma}
+        \hat{\sigma}^2:=\sum_{i=1}^5\frac{\hat{\sigma}^2_i}{5},
+    \end{equation*}
+    where
+        \begin{equation*}
+            \begin{aligned}
+                &\hat{\sigma}^2_1
+                  = \frac{<S,S>_T}{\int_0^T(1-S(t))^2dt},
+                \qquad
+                \hat{\sigma}^2_2
+                    = \frac{<E,E>_T}{\int_0^TE(t)^2dt},
+                \qquad
+                \hat{\sigma}^2_3
+                    = \frac{<I_a,I_a>_T}{\int_0^TI_a(t)^2dt},
+                \\
+                    & \hat{\sigma}^2_4
+                    = \frac{<I_s,I_s>_T}{\int_0^TI_s(t)^2dt},
+                    \qquad
+                    \hat{\sigma}^2_5
+                    = \frac{<R,R>_T}{\int_0^TR(t)^2dt}.
+            \end{aligned}  
+        \end{equation*}
+\end{frame}
+%--------------------------------------------------------------------
+\begin{frame}{MLEs for infection rates }
+        \begin{equation*}
+            \begin{pmatrix}
+                 \hat{\beta_s}  
+                 \\
+                 \hat{\beta_a} 
+            \end{pmatrix}
+        =
+            - \sigma 
+        \begin{pmatrix}
+            J_s(T) & J_{sa}(T)\\
+            J_{sa}(T & J_a(T)
+        \end{pmatrix}^{-1} \, 
+        \begin{pmatrix}
+            \int_0^T 
+                \Big[ 
+                    \dfrac{S(t) I_s(t)}{ (1-S(t))} 
+                    + \dfrac{S(t) I_s(t)}{ E(t)} 
+                \Big] 
+             dW(t) 
+         \\
+         \int_0^T 
+             \Big[
+                 \dfrac{S(t) I_a(t)}{ (1-S(t))}
+                 + \dfrac{S(t) I_a(t)}{ E(t)} 
+             \Big]  dW(t)
+        \end{pmatrix}.
+    \end{equation*}
+    whith
+    \begin{align*}
+        J_\star(T)
+            &:= 
+                \int_0^T 
+                    \left(
+                        \Big[
+                            \dfrac{S(t) I_\star(t)}{ (1-S(t))} 
+                        \Big]^2  
+                        +
+                        \Big[ 
+                            \dfrac{S(t) I_\star(t)}{ E(t)}
+                        \Big]^2 
+                    \right) dt,
+        \\
+        J_{sa}(T)
+            &:=  
+                \int_0^T 
+                    I_a(t) I_s(t) 
+                    \left(
+                        \Big[
+                            \dfrac{S(t)}{(1-S(t))}
+                        \Big] ^ 2  
+                        +
+                        \Big[
+                            \dfrac{S(t)}{E(t)} 
+                        \Big] ^ 2 
+                    \right) dt.
+    \end{align*}
+\end{frame}
+%
+\begin{frame}{MLE for proportion of asymptomatic }
+    \begin{align*}
+         \label{MLE_p}
+         \hat{p}_{ML}&=
+             \frac{\sigma }{J_2(T)} 
+                 \int_0^T 
+                     \Big[
+                         - \dfrac{\kappa E(t)}{ I_a(t)} 
+                         + \dfrac{\kappa E(t)}{ I_s(t)} 
+                     \Big] dW(t),
+    \end{align*}
+ with 
+$$
+    J_2(T):=
+        \int_0^T
+            \Big[
+                \dfrac{\kappa ^ 2 E ^ 2(t)}{I_s^2(t)} 
+                + \dfrac{\kappa ^ 2 E ^ 2(t)}{ I_a^2(t)}
+            \Big] dt.
+$$
+\end{frame}
+%-------------------------------------------------------------------------
+
+
+\begin{frame}{Consistency of our estimators}
+\textbf{Hypotheses}
+    There exists $T_0>0$ such that for all $t\in [0,T_0]$
+     \begin{itemize}[label=(\ding{109})]
+         \item
+             $\mathcal{R}_0 ^ D > 1$ where 
+             $$
+                 \mathcal{R}_0^{D}:= 
+                 \dfrac{p \kappa \beta_s }{(\mu + \kappa) (\mu + \alpha_s)}
+                 +
+                 \dfrac{(1 - p) \kappa \beta_a}{
+                     (\mu + \kappa)(\mu + \alpha_a)}.
+             $$
+         \item
+            The initial condition $X_0 ^ +$ and parameter configuration 
+            $\varphi$ are such that ${\Omega^* \neq  \emptyset}$ where
+            \begin{equation*}
+                \begin{aligned}
+                    \Omega^{*} :=
+                    \left \{
+                        (S, E, I_a, I_s, R) \times [t_0 , T]:
+                    \right.
+                    &
+                    S(T) \leq S(t) < S(t_0),
+                    \\
+                     &
+                    \left.
+                     E(t) > E(t_0), \ 
+                     I_a(t) > I_a(t_0), \ 
+                     I_s(t) > I_s(t_0)
+                     \right \}.
+                \end{aligned}
+            \end{equation*}
+        \end{itemize} 
+    \begin{theorem}\label{Consitency-th}
+       
+        The estimators 
+        $(\hat{\beta}_{s,ML},\hat{\beta}_{a,ML},\hat{p}_{ML})$ 
+        are  strongly consistent; that is,
+        \begin{equation}
+            \label{consistency}
+            \lim_{T \rightarrow T_0} 
+            \begin{pmatrix}
+                \hat \beta_{s,ML} 
+                \\
+                \hat \beta_{a,ML} 
+                \\
+                \hat p_{ML}
+            \end{pmatrix}
+            = 
+            \begin{pmatrix}
+                \beta_{s,0} 
+            \\
+                \beta_{a,0} 
+            \\
+                p_0
+            \end{pmatrix}, 
+            \qquad \mbox{with probability one.}
+        \end{equation}
+    \end{theorem}
+    See \cite{Baltazar2022}
+\end{frame}
